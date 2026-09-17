@@ -63,7 +63,7 @@
             if (txId) {
                 console.log('[Interceptor] Redirecionando checagem de status:', txId);
                 try {
-                  const resp = await originalFetch(`/api/check-status/${txId}`);
+                  const resp = await originalFetch(`/api/check-status?id=${txId}`);
                   const result = await resp.json();
                   return new Response(JSON.stringify(result), {
                     status: 200, headers: { 'Content-Type': 'application/json' }
